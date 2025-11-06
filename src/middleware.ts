@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 
 //Public routes
-const publicRoutes = ["/", "/login", "/register"];
+const publicRoutes = ["/", "/login", "/register", "/not-authorized"];
 
 export default async function middleware (req: NextRequest) {
     const { pathname } = req.nextUrl;
@@ -37,7 +37,7 @@ export default async function middleware (req: NextRequest) {
     if (pathname.startsWith("/dashboard") && !["user", "admin"].includes(role)){
         return NextResponse.redirect(new URL("/not-authorized", req.url));
     }
-    //if all avlidations are  passed, so cotinue.
+    //if all validations are  passed, so cotinue.
     return NextResponse.next();
 }
  

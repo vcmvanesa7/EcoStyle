@@ -22,5 +22,5 @@ export async function POST(req:Request) {
         password: hashed,
         role: "user",
     });
-    return Response.json({ message: "User registered successfully" });
+    return Response.json({ message: "User registered successfully" }, {status: 201});
 }
