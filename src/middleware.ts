@@ -28,6 +28,7 @@ export default async function middleware (req: NextRequest) {
     const role = token.role;
 
     //routes only for admin
+    
     if (pathname.startsWith("/admin") && role !== "admin" ){
         return NextResponse.redirect(new URL("/not-authorized", req.url));
     }

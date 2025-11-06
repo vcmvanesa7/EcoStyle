@@ -22,11 +22,11 @@ export const authOptions: NextAuthOptions = {
                 
                 //find user by email
                 const user = await User.findOne({ email });
-                if  (!user) throw new Error("Invalid password");
+                if  (!user) throw new Error("Invalid credentials");
 
                 //compare Password
                 const match = await bcrypt.compare(password, user.password);
-                if (!match) throw new Error("Invalid password");
+                if (!match) throw new Error("Invalid credentials");
 
                 //return user data to encode in JWT
                 return{
