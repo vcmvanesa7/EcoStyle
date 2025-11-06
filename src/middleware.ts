@@ -40,7 +40,7 @@ export default async function middleware (req: NextRequest) {
     //if all avlidations are  passed, so cotinue.
     return NextResponse.next();
 }
-
+ 
 //Active middleware for all routes, except assets
 export const config = {
     matcher: [
